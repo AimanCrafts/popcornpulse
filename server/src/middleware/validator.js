@@ -1,4 +1,3 @@
-// server/src/middleware/validator.js
 const ApiResponse = require('../utils/response');
 
 function validateBooking(req, res, next) {

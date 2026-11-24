@@ -1,4 +1,3 @@
-// server/src/controllers/bookingController.js
 const bookingService = require('../services/bookingService');
 const ApiResponse = require('../utils/response');
 

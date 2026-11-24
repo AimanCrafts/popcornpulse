@@ -1879,6 +1879,148 @@ body {
   color: #000;
 }
 
+.dietary-tag {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.04);
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  width: fit-content;
+  margin-bottom: 0.9rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.concession-qty-stepper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--neon-gold);
+  border-radius: 9999px;
+  padding: 0.2rem 0.5rem;
+}
+
+.stepper-btn {
+  background: transparent;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  transition: var(--transition);
+}
+
+.stepper-btn:hover {
+  background: var(--neon-gold);
+  color: #000;
+}
+
+.stepper-qty {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #fff;
+  min-width: 16px;
+  text-align: center;
+}
+
+.floating-concessions-tray {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(18, 18, 28, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--neon-gold);
+  border-radius: 9999px;
+  padding: 0.75rem 1.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7), 0 0 25px rgba(255, 215, 0, 0.25);
+  z-index: 900;
+  max-width: 90%;
+  animation: slideUpTray 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideUpTray {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 20px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+.tray-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.tray-title {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.tray-price {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--neon-gold);
+  font-weight: 600;
+}
+
+.tray-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.tray-clear-btn {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--text-muted);
+  border-radius: 9999px;
+  padding: 0.4rem 0.9rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.tray-clear-btn:hover {
+  color: #fff;
+  border-color: #fff;
+}
+
+.tray-checkout-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--neon-gold);
+  border: none;
+  color: #000;
+  font-weight: 800;
+  font-size: 0.85rem;
+  padding: 0.55rem 1.25rem;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.tray-checkout-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+}
+
 /* ==========================================================================
    COMMUNITY MOVIE NIGHTS
    ========================================================================== */

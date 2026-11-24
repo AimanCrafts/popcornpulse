@@ -1,8 +1,19 @@
-// src/components/cinema/MovieFilterBar.jsx
 import React from 'react';
 import { useCinema } from '../../context/CinemaContext';
 
-const GENRES = ['All', 'Sci-Fi', 'Action', 'Drama', 'Animation', 'Mystery'];
+const GENRES = [
+  'All',
+  'Sci-Fi',
+  'Action',
+  'Drama',
+  'Animation',
+  'Comedy',
+  'Romance',
+  'Thriller',
+  'Horror',
+  'Adventure',
+  'Mystery'
+];
 
 const MovieFilterBar = () => {
   const {

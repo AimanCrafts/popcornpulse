@@ -1,4 +1,3 @@
-// server/src/index.js
 const createApp = require('./app');
 const config = require('./config');
 

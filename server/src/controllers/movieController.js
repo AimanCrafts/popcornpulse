@@ -1,4 +1,3 @@
-// server/src/controllers/movieController.js
 const movieService = require('../services/movieService');
 const ApiResponse = require('../utils/response');
 

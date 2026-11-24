@@ -1,4 +1,3 @@
-// src/components/booking/BookingModal.jsx
 import React, { useState } from 'react';
 import { useCinema } from '../../context/CinemaContext';
 import {
@@ -14,7 +13,8 @@ const SEATS_PER_ROW = 8;
 const BookingModal = () => {
   const {
     bookingMovie,
-    setBookingMovie,
+    closeBookingModal,
+    bookingShowtime,
     showtimes,
     concessions,
     handleBookingSuccess
@@ -23,7 +23,7 @@ const BookingModal = () => {
   if (!bookingMovie) return null;
 
   const movieShowtimes = showtimes.filter(s => s.movieId === bookingMovie.id);
-  const initialShowtime = movieShowtimes[0] || showtimes[0] || {
+  const initialShowtime = bookingShowtime || movieShowtimes[0] || showtimes[0] || {
     id: 'st-101',
     cinema: 'PopcornPulse Grand Cinema - Downtown',
     screen: 'IMAX Laser 70mm Screen 1',
@@ -35,7 +35,7 @@ const BookingModal = () => {
     occupiedSeats: ['A3', 'A4', 'B5', 'B6', 'C4', 'C5']
   };
 
-  const [selectedShowtimeId, setSelectedShowtimeId] = useState(initialShowtime.id);
+  const [selectedShowtimeId, setSelectedShowtimeId] = useState(bookingShowtime?.id || initialShowtime.id);
   const [selectedSeats, setSelectedSeats] = useState([]);
   const [ticketType, setTicketType] = useState('Standard');
   const [selectedConcessions, setSelectedConcessions] = useState([]);
@@ -52,7 +52,7 @@ const BookingModal = () => {
   const concessionsSubtotal = selectedConcessions.reduce((sum, item) => sum + (item.price * item.qty), 0);
   const grandTotal = Number((ticketsSubtotal + concessionsSubtotal).toFixed(2));
 
-  const handleClose = () => setBookingMovie(null);
+  const handleClose = () => closeBookingModal();
 
   // Toggle seat selection
   const handleSeatClick = (seatCode, isOccupied) => {

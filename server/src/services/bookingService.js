@@ -1,4 +1,3 @@
-// server/src/services/bookingService.js
 const cinemaRepository = require('../repositories/cinemaRepository');
 const config = require('../config');
 

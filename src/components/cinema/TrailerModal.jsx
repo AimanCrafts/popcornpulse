@@ -1,4 +1,3 @@
-// src/components/cinema/TrailerModal.jsx
 import React from 'react';
 import { useCinema } from '../../context/CinemaContext';
 import { XIcon, TicketIcon } from '../common/Icons';

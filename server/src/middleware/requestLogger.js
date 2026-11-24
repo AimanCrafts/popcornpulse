@@ -1,4 +1,3 @@
-// server/src/middleware/requestLogger.js
 function requestLogger(req, res, next) {
   const start = Date.now();
   const { method, originalUrl, ip } = req;

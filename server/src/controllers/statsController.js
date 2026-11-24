@@ -1,4 +1,3 @@
-// server/src/controllers/statsController.js
 const statsService = require('../services/statsService');
 const ApiResponse = require('../utils/response');
 

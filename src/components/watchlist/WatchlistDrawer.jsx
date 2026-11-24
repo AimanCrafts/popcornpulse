@@ -1,4 +1,3 @@
-// src/components/watchlist/WatchlistDrawer.jsx
 import React from 'react';
 import { useCinema } from '../../context/CinemaContext';
 import { XIcon, TicketIcon, ClockIcon, SparklesIcon } from '../common/Icons';

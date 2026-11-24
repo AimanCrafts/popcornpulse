@@ -1,18 +1,15 @@
-// src/context/CinemaContext.jsx
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { api } from '../services/api';
 
 const CinemaContext = createContext(null);
 
 export const CinemaProvider = ({ children }) => {
-  // Navigation & View state
   const [activeTab, setActiveTab] = useState('movies');
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedGenre, setSelectedGenre] = useState('All');
   const [statusFilter, setStatusFilter] = useState('all');
   const [sortBy, setSortBy] = useState('pulse');
 
-  // Domain data states
   const [movies, setMovies] = useState([]);
   const [showtimes, setShowtimes] = useState([]);
   const [concessions, setConcessions] = useState([]);
@@ -21,10 +18,8 @@ export const CinemaProvider = ({ children }) => {
   const [stats, setStats] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
-  // Cinema lighting mood state
   const [cinemaLightsDimmed, setCinemaLightsDimmed] = useState(false);
 
-  // Watchlist persisted state
   const [watchlist, setWatchlist] = useState(() => {
     try {
       return JSON.parse(localStorage.getItem('popcornpulse_watchlist')) || [];
@@ -33,13 +28,12 @@ export const CinemaProvider = ({ children }) => {
     }
   });
 
-  // Modal states
   const [bookingMovie, setBookingMovie] = useState(null);
+  const [bookingShowtime, setBookingShowtime] = useState(null);
   const [trailerMovie, setTrailerMovie] = useState(null);
   const [isWatchlistOpen, setIsWatchlistOpen] = useState(false);
   const [toast, setToast] = useState(null);
 
-  // Notification helper
   const notify = (title, message, type = 'success') => {
     setToast({ title, message, type });
     setTimeout(() => {
@@ -47,7 +41,6 @@ export const CinemaProvider = ({ children }) => {
     }, 4500);
   };
 
-  // Sync watchlist to localStorage
   useEffect(() => {
     try {
       localStorage.setItem('popcornpulse_watchlist', JSON.stringify(watchlist));
@@ -56,7 +49,6 @@ export const CinemaProvider = ({ children }) => {
     }
   }, [watchlist]);
 
-  // Load all platform data
   const loadAllData = async () => {
     setIsLoading(true);
     try {
@@ -85,7 +77,6 @@ export const CinemaProvider = ({ children }) => {
     loadAllData();
   }, []);
 
-  // Filtered & Sorted movies
   const filteredMovies = movies
     .filter((m) => {
       const matchSearch =
@@ -110,7 +101,6 @@ export const CinemaProvider = ({ children }) => {
       return 0;
     });
 
-  // Watchlist Actions
   const toggleWatchlist = (movie) => {
     const exists = watchlist.some((m) => m.id === movie.id);
     if (exists) {
@@ -126,7 +116,16 @@ export const CinemaProvider = ({ children }) => {
     return watchlist.some((m) => m.id === movieId);
   };
 
-  // Booking Actions
+  const openBookingModal = (movie, showtime = null) => {
+    setBookingMovie(movie);
+    setBookingShowtime(showtime);
+  };
+
+  const closeBookingModal = () => {
+    setBookingMovie(null);
+    setBookingShowtime(null);
+  };
+
   const handleBookingSuccess = (booking) => {
     notify(
       'Reservation Confirmed!',
@@ -135,7 +134,6 @@ export const CinemaProvider = ({ children }) => {
     api.getStats().then(setStats).catch(() => {});
   };
 
-  // RSVP Actions
   const handleRsvpSuccess = (event, guestName) => {
     notify('Watch Party RSVP Confirmed!', `See you at "${event.title}"!`, 'info');
     setEvents((prev) =>
@@ -143,7 +141,6 @@ export const CinemaProvider = ({ children }) => {
     );
   };
 
-  // Review Actions
   const handleReviewSubmitted = (newRev) => {
     setReviews((prev) => [newRev, ...prev]);
     notify(
@@ -153,7 +150,6 @@ export const CinemaProvider = ({ children }) => {
   };
 
   const value = {
-    // Nav & Filters
     activeTab,
     setActiveTab,
     searchQuery,
@@ -165,7 +161,6 @@ export const CinemaProvider = ({ children }) => {
     sortBy,
     setSortBy,
 
-    // Data
     movies,
     filteredMovies,
     showtimes,
@@ -176,29 +171,28 @@ export const CinemaProvider = ({ children }) => {
     isLoading,
     refreshData: loadAllData,
 
-    // Watchlist
     watchlist,
     toggleWatchlist,
     isSavedInWatchlist,
     isWatchlistOpen,
     setIsWatchlistOpen,
 
-    // Modals
     bookingMovie,
     setBookingMovie,
+    bookingShowtime,
+    setBookingShowtime,
+    openBookingModal,
+    closeBookingModal,
     trailerMovie,
     setTrailerMovie,
 
-    // Ambience
     cinemaLightsDimmed,
     toggleCinemaLights: () => setCinemaLightsDimmed((prev) => !prev),
 
-    // Notifications
     toast,
     setToast,
     notify,
 
-    // Action Handlers
     handleBookingSuccess,
     handleRsvpSuccess,
     handleReviewSubmitted

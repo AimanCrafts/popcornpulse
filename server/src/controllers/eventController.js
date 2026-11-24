@@ -1,4 +1,3 @@
-// server/src/controllers/eventController.js
 const eventService = require('../services/eventService');
 const ApiResponse = require('../utils/response');
 

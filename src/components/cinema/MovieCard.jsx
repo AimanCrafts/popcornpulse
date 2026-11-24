@@ -1,4 +1,3 @@
-// src/components/cinema/MovieCard.jsx
 import React from 'react';
 import { useCinema } from '../../context/CinemaContext';
 import { TicketIcon, HeartIcon, SparklesIcon, PlayIcon, ClockIcon } from '../common/Icons';

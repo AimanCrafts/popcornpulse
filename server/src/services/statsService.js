@@ -1,4 +1,3 @@
-// server/src/services/statsService.js
 const cinemaRepository = require('../repositories/cinemaRepository');
 
 class StatsService {

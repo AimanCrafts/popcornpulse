@@ -1,4 +1,3 @@
-// server/src/services/concessionService.js
 const cinemaRepository = require('../repositories/cinemaRepository');
 
 class ConcessionService {

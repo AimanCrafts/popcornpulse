@@ -1,4 +1,3 @@
-// src/components/common/Toast.jsx
 import React from 'react';
 import { CheckIcon, SparklesIcon, XIcon } from './Icons';
 

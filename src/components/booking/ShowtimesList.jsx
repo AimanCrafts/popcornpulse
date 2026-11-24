@@ -1,9 +1,8 @@
-// src/components/booking/ShowtimesList.jsx
 import React from 'react';
 import { useCinema } from '../../context/CinemaContext';
 
 const ShowtimesList = () => {
-  const { movies, showtimes, setBookingMovie } = useCinema();
+  const { movies, showtimes, openBookingModal } = useCinema();
 
   return (
     <section className="showtimes-view-wrapper">
@@ -35,7 +34,7 @@ const ShowtimesList = () => {
                   <button
                     key={st.id}
                     className="showtime-card-btn"
-                    onClick={() => setBookingMovie(m)}
+                    onClick={() => openBookingModal(m, st)}
                   >
                     <span className="format-tag">{st.format}</span>
                     <span className="time-val">{st.time}</span>

@@ -1,4 +1,3 @@
-// server/src/services/movieService.js
 const cinemaRepository = require('../repositories/cinemaRepository');
 
 class MovieService {

@@ -1,4 +1,3 @@
-// server/src/controllers/reviewController.js
 const reviewService = require('../services/reviewService');
 const ApiResponse = require('../utils/response');
 

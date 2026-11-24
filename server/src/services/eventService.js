@@ -1,4 +1,3 @@
-// server/src/services/eventService.js
 const cinemaRepository = require('../repositories/cinemaRepository');
 
 class EventService {

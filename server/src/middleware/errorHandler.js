@@ -1,4 +1,3 @@
-// server/src/middleware/errorHandler.js
 const ApiResponse = require('../utils/response');
 const config = require('../config');
 

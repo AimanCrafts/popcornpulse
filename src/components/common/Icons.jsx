@@ -1,4 +1,3 @@
-// src/components/common/Icons.jsx
 import React from 'react';
 
 export const FilmIcon = ({ size = 20, className = '' }) => (

@@ -1,4 +1,3 @@
-// server/src/controllers/concessionController.js
 const concessionService = require('../services/concessionService');
 const ApiResponse = require('../utils/response');
 

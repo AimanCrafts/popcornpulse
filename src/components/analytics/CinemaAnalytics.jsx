@@ -1,4 +1,3 @@
-// src/components/analytics/CinemaAnalytics.jsx
 import React from 'react';
 import { useCinema } from '../../context/CinemaContext';
 import { BarChartIcon, TicketIcon, SparklesIcon, UsersIcon, PopcornIcon } from '../common/Icons';

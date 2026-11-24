@@ -1,4 +1,3 @@
-// src/components/community/PulseReviews.jsx
 import React, { useState } from 'react';
 import { useCinema } from '../../context/CinemaContext';
 import { SparklesIcon, ThumbsUpIcon, EyeOffIcon, PopcornIcon } from '../common/Icons';
@@ -15,7 +14,7 @@ const AVAILABLE_TAGS = [
 ];
 
 const PulseReviews = () => {
-  const { movies, reviews, handleReviewSubmitted } = useCinema();
+  const { movies, reviews, handleReviewSubmitted, notify } = useCinema();
 
   const [selectedMovieId, setSelectedMovieId] = useState(movies[0]?.id || 'mov-1');
   const [filterMovieId, setFilterMovieId] = useState('ALL');
@@ -95,7 +94,7 @@ const PulseReviews = () => {
       setIsSpoiler(false);
       setReviewerName('');
     } catch (err) {
-      alert(err.message || 'Error submitting review');
+      notify('Submission Notice', err.message || 'Error submitting review.', 'error');
     } finally {
       setIsSubmitting(false);
     }

@@ -1,11 +1,10 @@
-// src/components/community/CommunityEvents.jsx
 import React, { useState } from 'react';
 import { useCinema } from '../../context/CinemaContext';
 import { UsersIcon, CalendarIcon, MapPinIcon, CheckIcon } from '../common/Icons';
 import { api } from '../../services/api';
 
 const CommunityEvents = () => {
-  const { events, handleRsvpSuccess } = useCinema();
+  const { events, handleRsvpSuccess, notify } = useCinema();
   const [rsvpState, setRsvpState] = useState({});
   const [guestName, setGuestName] = useState('');
   const [activeModalEvent, setActiveModalEvent] = useState(null);
@@ -25,7 +24,7 @@ const CommunityEvents = () => {
       setActiveModalEvent(null);
       setGuestName('');
     } catch (err) {
-      alert(err.message || 'Could not RSVP.');
+      notify('RSVP Notice', err.message || 'Could not RSVP.', 'error');
     }
   };
 

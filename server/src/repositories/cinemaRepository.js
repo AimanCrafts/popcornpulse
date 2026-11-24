@@ -1,4 +1,3 @@
-// server/src/repositories/cinemaRepository.js
 const fs = require('fs');
 const path = require('path');
 const seed = require('../data/seedData');

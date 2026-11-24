@@ -1,4 +1,3 @@
-// src/App.jsx
 import React from 'react';
 import { CinemaProvider, useCinema } from './context/CinemaContext';
 import Navbar from './components/layout/Navbar';

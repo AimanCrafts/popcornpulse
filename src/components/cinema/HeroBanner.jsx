@@ -1,4 +1,3 @@
-// src/components/cinema/HeroBanner.jsx
 import React from 'react';
 import { useCinema } from '../../context/CinemaContext';
 import {

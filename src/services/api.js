@@ -1,13 +1,6 @@
-// src/services/api.js
-/**
- * Cinema Platform API Client
- * Encapsulates all backend HTTP interactions with resilient offline fallback
- */
+import { initialMovies, initialShowtimes, initialConcessions, initialEvents, initialReviews } from '../data/seedData';
 
 const BASE_URL = 'http://localhost:5000/api';
-
-// Fallback seed catalog for offline resilience
-import { initialMovies, initialShowtimes, initialConcessions, initialEvents, initialReviews } from '../data/seedData';
 
 async function request(endpoint, options = {}, fallback = null) {
   try {
@@ -25,10 +18,8 @@ async function request(endpoint, options = {}, fallback = null) {
     }
 
     const payload = await res.json();
-    // Return inner data if using standard ApiResponse envelope
     return payload.data !== undefined ? payload.data : payload;
   } catch (err) {
-    console.warn(`[PopcornPulse API] Request to ${endpoint} failed. Utilizing resilient fallback.`, err.message);
     if (fallback !== null) {
       return typeof fallback === 'function' ? fallback() : fallback;
     }
@@ -124,7 +115,7 @@ export const api = {
         movieTitle: reviewData.movieTitle || 'Cinema Presentation',
         userName: reviewData.userName || 'Verified Cinephile',
         userBadge: 'Verified Cinema Goer',
-        avatar: `https://api.dicebear.com/7.x/bottts/svg?seed=${encodeURIComponent(reviewData.userName || 'User')}`,
+        avatar: `https://api.dicebear.com/7.x/avataaars/svg?seed=${encodeURIComponent(reviewData.userName || 'User')}`,
         date: 'Just now',
         ratings: { story, visuals, sound, popcorn },
         pulseScore,
@@ -166,14 +157,22 @@ export const api = {
   // Telemetry Stats
   async getStats() {
     return request('/stats', {}, {
-      totalTicketsBooked: 342,
-      avgPulseScore: 96,
-      totalReviews: 89,
-      activeMovieNights: 4,
-      totalRsvps: 422,
-      genreCounts: { "Sci-Fi": 4, "Action": 3, "Drama": 2, "Animation": 1 },
+      totalTicketsBooked: 582,
+      avgPulseScore: 95,
+      totalReviews: 124,
+      activeMovieNights: 5,
+      totalRsvps: 620,
+      genreCounts: {
+        "Sci-Fi": 6,
+        "Action": 6,
+        "Drama": 5,
+        "Animation": 2,
+        "Comedy": 2,
+        "Romance": 2,
+        "Thriller": 3
+      },
       topScreenFormat: 'IMAX 70mm Dual Laser',
-      auditoriumsOnline: 12
+      auditoriumsOnline: 16
     });
   }
 };

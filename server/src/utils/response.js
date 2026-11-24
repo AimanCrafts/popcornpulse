@@ -1,4 +1,3 @@
-// server/src/utils/response.js
 /**
  * Standardized API Response Helpers
  * Follows industry best practices (JSend-inspired structure)

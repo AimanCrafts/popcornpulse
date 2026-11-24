@@ -1,4 +1,3 @@
-// src/components/layout/Navbar.jsx
 import React, { useState } from 'react';
 import { useCinema } from '../../context/CinemaContext';
 import {
