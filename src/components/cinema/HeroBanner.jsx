@@ -6,7 +6,8 @@ import {
   StarIcon,
   FlameIcon,
   SparklesIcon,
-  ClockIcon
+  ClockIcon,
+  PopcornIcon
 } from '../common/Icons';
 
 const HeroBanner = ({ movie }) => {
@@ -59,7 +60,7 @@ const HeroBanner = ({ movie }) => {
           <div className="pulse-metric-card">
             <div className="metric-score">
               <span className="score-number">{movie.audienceScore}%</span>
-              <span className="popcorn-small">🍿</span>
+              <PopcornIcon size={16} className="text-gold" />
             </div>
             <span className="metric-label">POPCORN SCORE</span>
           </div>

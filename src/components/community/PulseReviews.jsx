@@ -145,7 +145,7 @@ const PulseReviews = () => {
             {/* 4-Axis Rating Stars */}
             <div className="rating-axes-box">
               <div className="axis-row">
-                <span className="axis-title">📖 Story & Screenplay</span>
+                <span className="axis-title">Story & Screenplay</span>
                 <div className="star-rating-picker">
                   {[1, 2, 3, 4, 5].map((val) => (
                     <button
@@ -161,7 +161,7 @@ const PulseReviews = () => {
               </div>
 
               <div className="axis-row">
-                <span className="axis-title">🎨 Visuals & IMAX Scale</span>
+                <span className="axis-title">Visuals & Scale</span>
                 <div className="star-rating-picker">
                   {[1, 2, 3, 4, 5].map((val) => (
                     <button
@@ -177,7 +177,7 @@ const PulseReviews = () => {
               </div>
 
               <div className="axis-row">
-                <span className="axis-title">🎵 Sound Design & Score</span>
+                <span className="axis-title">Sound Design & Score</span>
                 <div className="star-rating-picker">
                   {[1, 2, 3, 4, 5].map((val) => (
                     <button
@@ -193,7 +193,7 @@ const PulseReviews = () => {
               </div>
 
               <div className="axis-row">
-                <span className="axis-title">🍿 Popcorn Fun Factor</span>
+                <span className="axis-title">Popcorn Fun Factor</span>
                 <div className="star-rating-picker">
                   {[1, 2, 3, 4, 5].map((val) => (
                     <button

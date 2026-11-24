@@ -1,6 +1,6 @@
 import React from 'react';
 import { useCinema } from '../../context/CinemaContext';
-import { XIcon, TicketIcon, ClockIcon, SparklesIcon } from '../common/Icons';
+import { XIcon, TicketIcon, ClockIcon, SparklesIcon, FilmIcon } from '../common/Icons';
 
 const WatchlistDrawer = () => {
   const {
@@ -31,7 +31,9 @@ const WatchlistDrawer = () => {
         <div className="drawer-body">
           {watchlist.length === 0 ? (
             <div className="drawer-empty-state">
-              <span className="empty-emoji">🎬</span>
+              <div className="empty-drawer-icon">
+                <FilmIcon size={36} />
+              </div>
               <h3>Your watchlist is empty</h3>
               <p>Click the heart icon on any film card to save it for your next cinema outing.</p>
             </div>

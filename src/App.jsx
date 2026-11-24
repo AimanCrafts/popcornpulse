@@ -14,6 +14,7 @@ import PulseReviews from './components/community/PulseReviews';
 import CinemaAnalytics from './components/analytics/CinemaAnalytics';
 import WatchlistDrawer from './components/watchlist/WatchlistDrawer';
 import Toast from './components/common/Toast';
+import { FilmIcon } from './components/common/Icons';
 import './App.css';
 
 const CinemaAppContent = () => {
@@ -57,7 +58,9 @@ const CinemaAppContent = () => {
 
               {filteredMovies.length === 0 && (
                 <div className="no-movies-found">
-                  <span className="no-movies-emoji">🍿</span>
+                  <div className="no-movies-icon">
+                    <FilmIcon size={36} />
+                  </div>
                   <h3>No screenings matching your query</h3>
                   <p>Try clearing your search term or switching genre filters.</p>
                   <button

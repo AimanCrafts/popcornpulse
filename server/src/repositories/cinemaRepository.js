@@ -1,19 +1,20 @@
 const fs = require('fs');
 const path = require('path');
-const seed = require('../data/seedData');
 
 const STORE_PATH = path.join(__dirname, '../data/cinemaStore.json');
 
+const DEFAULT_STORE = {
+  movies: [],
+  showtimes: [],
+  concessions: [],
+  events: [],
+  reviews: [],
+  bookings: []
+};
+
 class CinemaRepository {
   constructor() {
-    this.data = {
-      movies: [],
-      showtimes: [],
-      concessions: [],
-      events: [],
-      reviews: [],
-      bookings: []
-    };
+    this.data = { ...DEFAULT_STORE };
     this.loadData();
   }
 
@@ -23,34 +24,20 @@ class CinemaRepository {
         const fileContent = fs.readFileSync(STORE_PATH, 'utf-8');
         const parsed = JSON.parse(fileContent);
         this.data = {
-          movies: parsed.movies?.length ? parsed.movies : [...seed.initialMovies],
-          showtimes: parsed.showtimes?.length ? parsed.showtimes : [...seed.initialShowtimes],
-          concessions: parsed.concessions?.length ? parsed.concessions : [...seed.initialConcessions],
-          events: parsed.events?.length ? parsed.events : [...seed.initialEvents],
-          reviews: parsed.reviews?.length ? parsed.reviews : [...seed.initialReviews],
-          bookings: parsed.bookings?.length ? parsed.bookings : [...seed.initialBookings]
+          movies: Array.isArray(parsed.movies) ? parsed.movies : [],
+          showtimes: Array.isArray(parsed.showtimes) ? parsed.showtimes : [],
+          concessions: Array.isArray(parsed.concessions) ? parsed.concessions : [],
+          events: Array.isArray(parsed.events) ? parsed.events : [],
+          reviews: Array.isArray(parsed.reviews) ? parsed.reviews : [],
+          bookings: Array.isArray(parsed.bookings) ? parsed.bookings : []
         };
       } else {
-        this.data = {
-          movies: [...seed.initialMovies],
-          showtimes: [...seed.initialShowtimes],
-          concessions: [...seed.initialConcessions],
-          events: [...seed.initialEvents],
-          reviews: [...seed.initialReviews],
-          bookings: [...seed.initialBookings]
-        };
+        this.data = { ...DEFAULT_STORE };
         this.saveData();
       }
     } catch (err) {
-      console.warn('[Repository] Using seed data fallback due to file read error:', err.message);
-      this.data = {
-        movies: [...seed.initialMovies],
-        showtimes: [...seed.initialShowtimes],
-        concessions: [...seed.initialConcessions],
-        events: [...seed.initialEvents],
-        reviews: [...seed.initialReviews],
-        bookings: [...seed.initialBookings]
-      };
+      console.warn('[Repository] File read error:', err.message);
+      this.data = { ...DEFAULT_STORE };
     }
   }
 

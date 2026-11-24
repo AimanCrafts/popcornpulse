@@ -6,11 +6,10 @@ const Footer = () => {
       <div className="footer-inner">
         <div className="footer-col-brand">
           <div className="footer-logo">
-            <span>🍿</span>
             <h3>PopcornPulse</h3>
           </div>
           <p className="footer-desc">
-            The premier cinema destination engineered for film enthusiasts, 70mm purists, and community movie lovers.
+            The premier cinema destination engineered for film enthusiasts, 70mm screenings, and community watch parties.
           </p>
         </div>
 
@@ -25,23 +24,25 @@ const Footer = () => {
         </div>
 
         <div className="footer-col-links">
-          <h4>Cinephile Ecosystem</h4>
+          <h4>Cinephile Experience</h4>
           <ul>
-            <li>Community Movie Night RSVPs</li>
-            <li>4-Axis Pulse Sentiment Metrics</li>
-            <li>Interactive Collision-Free Seating</li>
-            <li>Gourmet Concessions Ordering</li>
+            <li>Community Watch Parties</li>
+            <li>Auditorium Seat Selection</li>
+            <li>Gourmet Concessions Tray</li>
+            <li>Multi-Axis Movie Critiques</li>
           </ul>
         </div>
 
-        <div className="footer-col-status">
-          <h4>System Status</h4>
-          <div className="status-pill-online">
-            <span className="live-dot" />
-            <span>Full-Stack Platform Active</span>
-          </div>
+        <div className="footer-col-links">
+          <h4>Policies & Terms</h4>
+          <ul>
+            <li>Terms of Service</li>
+            <li>Privacy & Ticket Policies</li>
+            <li>Auditorium Accessibility</li>
+            <li>Refund Guidelines</li>
+          </ul>
           <p className="footer-copy">
-            © {new Date().getFullYear()} PopcornPulse Cinema Inc. Crafted with precision for cinephiles.
+            © {new Date().getFullYear()} PopcornPulse Cinema Inc. All rights reserved.
           </p>
         </div>
       </div>

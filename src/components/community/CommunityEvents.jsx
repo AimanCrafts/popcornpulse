@@ -54,7 +54,7 @@ const CommunityEvents = () => {
               >
                 <div className="event-banner-overlay" />
                 <span className="event-badge">{evt.badge}</span>
-                <span className="event-movie-pill">🎬 {evt.movie}</span>
+                <span className="event-movie-pill">{evt.movie}</span>
               </div>
 
               <div className="event-card-body">
@@ -110,7 +110,7 @@ const CommunityEvents = () => {
             <h3>Confirm RSVP for Watch Party</h3>
             <p className="rsvp-modal-subtitle">{activeModalEvent.title}</p>
             <p className="rsvp-modal-details">
-              📅 {activeModalEvent.date} • 📍 {activeModalEvent.venue}
+              {activeModalEvent.date} • {activeModalEvent.venue}
             </p>
 
             <form onSubmit={handleConfirmRsvp} className="rsvp-form">

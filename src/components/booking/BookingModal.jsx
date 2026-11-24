@@ -152,7 +152,7 @@ const BookingModal = () => {
             <div className="digital-ticket-card">
               <div className="ticket-cutout-top" />
               <div className="ticket-header">
-                <div className="ticket-brand">🍿 PopcornPulse Cinema</div>
+                <div className="ticket-brand">PopcornPulse Cinema</div>
                 <div className="ticket-code-badge">{confirmedBooking.bookingCode}</div>
               </div>
 
@@ -186,7 +186,7 @@ const BookingModal = () => {
                   <div className="concessions-pills">
                     {confirmedBooking.concessions.map((c, i) => (
                       <span key={i} className="concession-pill">
-                        🍿 {c.name} (x{c.qty})
+                        {c.name} (x{c.qty})
                       </span>
                     ))}
                   </div>

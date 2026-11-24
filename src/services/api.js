@@ -1,4 +1,12 @@
-import { initialMovies, initialShowtimes, initialConcessions, initialEvents, initialReviews } from '../data/seedData';
+import catalog from '../data/cinemaCatalog.json';
+
+const {
+  movies: initialMovies = [],
+  showtimes: initialShowtimes = [],
+  concessions: initialConcessions = [],
+  events: initialEvents = [],
+  reviews: initialReviews = []
+} = catalog;
 
 const BASE_URL = 'http://localhost:5000/api';
 

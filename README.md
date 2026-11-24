@@ -1,4 +1,4 @@
-# 🍿 PopcornPulse — Modern Cinema Discovery & Seat Reservation Platform
+# PopcornPulse - Cinema Discovery & Seat Reservation Platform
 
 [![Deploy to GitHub Pages](https://github.com/AimanCrafts/popcornpulse/actions/workflows/deploy.yml/badge.svg)](https://github.com/AimanCrafts/popcornpulse/actions/workflows/deploy.yml)
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-GitHub%20Pages-ffd700?style=flat&logo=github)](https://aimancrafts.github.io/popcornpulse/)
@@ -9,11 +9,11 @@
 
 > **Live Demo:** [https://aimancrafts.github.io/popcornpulse/](https://aimancrafts.github.io/popcornpulse/)
 
-PopcornPulse is a production-grade cinema experience and movie discovery platform engineered with high-performance modern web standards, layered software design patterns, and an immersive cyber-cinema aesthetic.
+PopcornPulse is a production-grade cinema experience and movie discovery platform engineered with modern web standards, layered software design patterns, and an immersive dark cinema aesthetic.
 
 ---
 
-## 🌟 Key Platform Capabilities
+## Key Platform Capabilities
 
 1. **Curated Cinema Discovery & Multi-Axis Filtering**:
    - Status categorization: Now Screening, Coming Soon, and Trending Titles.
@@ -27,12 +27,12 @@ PopcornPulse is a production-grade cinema experience and movie discovery platfor
    - Concurrency-safe seat validation preventing double reservations.
    - Digital Cinema Boarding Pass generation with booking reference codes, barcode representations, auditorium information, seat allocations, and print/save capabilities.
 
-3. **Multi-Axis "Pulse" Sentiment & Audience Critiques**:
+3. **Multi-Axis Pulse Sentiment & Audience Critiques**:
    - Film evaluation across four foundational cinematic pillars:
-     - 📖 Story & Screenplay (1–5 ★)
-     - 🎨 Visuals & Scale (1–5 ★)
-     - 🎵 Sound Design & Score (1–5 ★)
-     - 🍿 Popcorn Entertainment Factor (1–5 ★)
+     - Story & Screenplay (1-5)
+     - Visuals & Scale (1-5)
+     - Sound Design & Score (1-5)
+     - Popcorn Entertainment Factor (1-5)
    - Weighted algorithmic Pulse Score calculation.
    - Spoiler protection: Interactive blur overlay with click-to-reveal toggle.
    - Verified cinephile badges and community critique upvotes.
@@ -52,7 +52,7 @@ PopcornPulse is a production-grade cinema experience and movie discovery platfor
 7. **Persistent Watchlist**:
    - Browser-persisted personal watchlist with instant booking shortcuts and badge counters.
 
-8. **Auditorium Ambience Mode ("Dim Lights")**:
+8. **Auditorium Ambience Mode (Dim Lights)**:
    - Interactive light switch in the navigation header that dims auditorium lighting to focus viewer attention on the silver screen.
 
 9. **Embedded 4K Trailer Theater**:
@@ -60,7 +60,7 @@ PopcornPulse is a production-grade cinema experience and movie discovery platfor
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 popcornpulse/
@@ -70,7 +70,8 @@ popcornpulse/
 ├── server/                         # Modular Express Backend
 │   ├── src/
 │   │   ├── config/                 # Environment configuration & business constants
-│   │   ├── data/                   # Seed catalog & persistent storage
+│   │   ├── data/
+│   │   │   └── cinemaStore.json    # Persistent JSON data store
 │   │   ├── repositories/           # Data access layer
 │   │   ├── services/               # Domain business logic (movies, bookings, reviews, events)
 │   │   ├── controllers/            # Request handlers with standardized response envelopes
@@ -92,10 +93,11 @@ popcornpulse/
 │   │   ├── analytics/              # CinemaAnalytics
 │   │   └── watchlist/              # WatchlistDrawer
 │   ├── context/                    # CinemaContext global application state
-│   ├── data/                       # Seed catalog fallback for client-side hosting
+│   ├── data/
+│   │   └── cinemaCatalog.json      # Structured JSON cinema catalog
 │   ├── services/                   # Resilient API client with offline fallback
 │   ├── App.jsx                     # Root application coordinator
-│   ├── App.css                     # Responsive cyber-cinema design system
+│   ├── App.css                     # Responsive cinema dark design system
 │   └── main.jsx                    # React DOM entry point
 │
 ├── index.html                      # Entry HTML with preloaded typography & metadata
@@ -105,7 +107,7 @@ popcornpulse/
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 - **Node.js**: v18.0.0 or higher
@@ -148,7 +150,7 @@ popcornpulse/
 
 ---
 
-## 🛠️ API Reference
+## API Reference
 
 | Method | Endpoint | Description |
 |---|---|---|
@@ -167,7 +169,7 @@ popcornpulse/
 
 ---
 
-## 📦 Build & Deployment
+## Build & Deployment
 
 The application features automated continuous deployment via GitHub Actions:
 
@@ -183,6 +185,6 @@ When code is pushed to the `main` branch, `.github/workflows/deploy.yml` builds 
 
 ---
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License.

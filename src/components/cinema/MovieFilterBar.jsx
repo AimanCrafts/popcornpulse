@@ -38,19 +38,19 @@ const MovieFilterBar = () => {
           className={`status-btn ${statusFilter === 'now_playing' ? 'active' : ''}`}
           onClick={() => setStatusFilter('now_playing')}
         >
-          🎬 Now Screening
+          Now Screening
         </button>
         <button
           className={`status-btn ${statusFilter === 'upcoming' ? 'active' : ''}`}
           onClick={() => setStatusFilter('upcoming')}
         >
-          ✨ Coming Soon
+          Coming Soon
         </button>
         <button
           className={`status-btn ${statusFilter === 'trending' ? 'active' : ''}`}
           onClick={() => setStatusFilter('trending')}
         >
-          🔥 Trending
+          Trending
         </button>
       </div>
 

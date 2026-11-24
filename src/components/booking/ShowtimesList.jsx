@@ -7,7 +7,7 @@ const ShowtimesList = () => {
   return (
     <section className="showtimes-view-wrapper">
       <div className="section-header-box">
-        <span className="section-tagline">🍿 INSTANT SEAT RESERVATION</span>
+        <span className="section-tagline">INSTANT SEAT RESERVATION</span>
         <h2 className="section-main-heading">Cinema Showtimes & Auditoriums</h2>
         <p className="section-description">
           Browse laser projection formats, Dolby Atmos sound stages, and reserve your favorite reclining seats.
