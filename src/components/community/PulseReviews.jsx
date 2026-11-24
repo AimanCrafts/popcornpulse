@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useCinema } from '../../context/CinemaContext';
 import { SparklesIcon, ThumbsUpIcon, EyeOffIcon, PopcornIcon } from '../common/Icons';
 import { api } from '../../services/api';
+import { sanitizeText } from '../../utils/security';
 
 const AVAILABLE_TAGS = [
   'Must Watch in IMAX',
@@ -77,12 +78,12 @@ const PulseReviews = () => {
       const payload = {
         movieId: selectedMovieId,
         movieTitle: targetMovie ? targetMovie.title : 'Cinema Film',
-        userName: reviewerName.trim() || 'Verified Cinephile',
+        userName: sanitizeText(reviewerName, 50) || 'Verified Cinephile',
         ratings,
-        headline,
-        content,
+        headline: sanitizeText(headline, 120),
+        content: sanitizeText(content, 2000),
         spoiler: isSpoiler,
-        tags: selectedTags
+        tags: selectedTags.map(t => sanitizeText(t, 40))
       };
 
       const newRev = await api.submitReview(payload);

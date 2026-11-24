@@ -6,6 +6,7 @@ import {
   CheckIcon
 } from '../common/Icons';
 import { api } from '../../services/api';
+import { sanitizeText, isValidEmail } from '../../utils/security';
 
 const ROWS = ['A', 'B', 'C', 'D', 'E', 'F'];
 const SEATS_PER_ROW = 8;
@@ -91,8 +92,8 @@ const BookingModal = () => {
       setErrorMsg('Please select at least one seat from the auditorium chart.');
       return;
     }
-    if (!guestEmail.trim()) {
-      setErrorMsg('Please enter your email to receive your digital cinema boarding pass.');
+    if (!guestEmail.trim() || !isValidEmail(guestEmail)) {
+      setErrorMsg('Please enter a valid email address for digital ticket delivery.');
       return;
     }
 
@@ -105,9 +106,9 @@ const BookingModal = () => {
         movieId: bookingMovie.id,
         movieTitle: bookingMovie.title,
         customer: {
-          name: guestName.trim() || 'Valued Guest',
+          name: sanitizeText(guestName, 60) || 'Valued Guest',
           email: guestEmail.trim(),
-          phone: guestPhone.trim() || 'N/A'
+          phone: sanitizeText(guestPhone, 25) || 'N/A'
         },
         seats: selectedSeats,
         ticketType,

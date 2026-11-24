@@ -7,12 +7,17 @@ const TrailerModal = () => {
 
   if (!trailerMovie) return null;
 
-  // Convert youtube watch URL to embed URL if needed
-  let embedUrl = trailerMovie.trailerUrl || 'https://www.youtube.com/embed/Way9Dexny3w';
-  if (embedUrl.includes('watch?v=')) {
-    embedUrl = embedUrl.replace('watch?v=', 'embed/');
-  }
+  // Strict domain and video ID validation to prevent iframe injection or open redirects
+  const extractSafeEmbedUrl = (rawUrl) => {
+    if (!rawUrl || typeof rawUrl !== 'string') return 'https://www.youtube-nocookie.com/embed/Way9Dexny3w?autoplay=1&rel=0';
+    const match = rawUrl.match(/(?:embed\/|v=|vi\/|youtu\.be\/|\/v\/)([a-zA-Z0-9_-]{11})/);
+    if (match && match[1]) {
+      return `https://www.youtube-nocookie.com/embed/${match[1]}?autoplay=1&rel=0`;
+    }
+    return 'https://www.youtube-nocookie.com/embed/Way9Dexny3w?autoplay=1&rel=0';
+  };
 
+  const safeUrl = extractSafeEmbedUrl(trailerMovie.trailerUrl);
   const handleClose = () => setTrailerMovie(null);
 
   return (
@@ -30,10 +35,11 @@ const TrailerModal = () => {
 
         <div className="trailer-video-frame">
           <iframe
-            src={`${embedUrl}?autoplay=1&rel=0`}
+            src={safeUrl}
             title={`${trailerMovie.title} Trailer`}
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            sandbox="allow-scripts allow-same-origin allow-presentation"
             allowFullScreen
           />
         </div>

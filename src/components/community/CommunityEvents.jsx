@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useCinema } from '../../context/CinemaContext';
 import { UsersIcon, CalendarIcon, MapPinIcon, CheckIcon } from '../common/Icons';
 import { api } from '../../services/api';
+import { sanitizeText } from '../../utils/security';
 
 const CommunityEvents = () => {
   const { events, handleRsvpSuccess, notify } = useCinema();
@@ -17,10 +18,11 @@ const CommunityEvents = () => {
     e.preventDefault();
     if (!activeModalEvent) return;
 
+    const safeGuest = sanitizeText(guestName, 60) || 'Cinephile';
     try {
-      await api.rsvpEvent(activeModalEvent.id, guestName);
+      await api.rsvpEvent(activeModalEvent.id, safeGuest);
       setRsvpState({ ...rsvpState, [activeModalEvent.id]: true });
-      handleRsvpSuccess(activeModalEvent, guestName || 'Cinephile');
+      handleRsvpSuccess(activeModalEvent, safeGuest);
       setActiveModalEvent(null);
       setGuestName('');
     } catch (err) {
