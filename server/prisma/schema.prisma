@@ -1,0 +1,30 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Feedback {
+  id         Int      @id @default(autoincrement())
+  firstName  String
+  lastName   String
+  phone      String
+  email      String   @unique
+  eventName  String
+  eventDate  DateTime
+  rating     Int
+  message    String
+  createdAt  DateTime @default(now())
+}
+
+model Movie {
+  id          Int      @id @default(autoincrement())
+  title       String
+  description String
+  posterUrl   String?
+  releaseDate DateTime?
+  createdAt   DateTime @default(now())
+}
